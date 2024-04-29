@@ -1,7 +1,6 @@
-import os
+from os import getenv
 from typing import Tuple
-
-import requests
+from requests import get
 from dotenv import load_dotenv
 
 from contracts.weatherinfo import WeatherInfo
@@ -10,7 +9,7 @@ from contracts.weatherinfo import WeatherInfo
 load_dotenv()
 
 # OpenWeatherMap API key
-API_KEY = os.getenv('OPENWEATHERMAP_API_KEY')
+API_KEY = getenv('OPENWEATHERMAP_API_KEY')
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 
 
@@ -24,7 +23,7 @@ class WeatherGetter:
             'units': 'metric'
         }
 
-        response = requests.get(BASE_URL, params=params)
+        response = get(BASE_URL, params=params)
 
         if response.status_code == 200:
             data = response.json()
