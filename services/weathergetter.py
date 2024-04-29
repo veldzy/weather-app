@@ -1,5 +1,6 @@
 from os import getenv
 from typing import Tuple
+
 from requests import get
 from dotenv import load_dotenv
 
