@@ -1,5 +1,6 @@
 from os import getenv
 from pytest import fixture
+
 from app import app
 from contracts.weatherinfo import WeatherInfo
 
