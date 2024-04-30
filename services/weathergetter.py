@@ -1,23 +1,23 @@
-from os import getenv
 from typing import Tuple
 
 from requests import get
-from dotenv import load_dotenv
 
 from contracts.weatherinfo import WeatherInfo
-
-# Load environment variables from .env file
-load_dotenv()
-
-# OpenWeatherMap API key
-API_KEY = getenv('OPENWEATHERMAP_API_KEY')
-BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
+from services import API_KEY, BASE_URL
 
 
 class WeatherGetter:
     @staticmethod
     def get_weather(city: str) -> Tuple[WeatherInfo | None, int]:
-        """Gets current weather data based in the city from OpenWeatherMap API"""
+        """
+        Gets current weather data based in the city from OpenWeatherMap API
+
+        Args:
+            city: The weather city parameter.
+
+        Returns:
+            The tuple with first element either WeatherInfo or None and second element as a status code.
+        """
         params = {
             'q': city,
             'appid': API_KEY,
