@@ -1,10 +1,8 @@
 from flask import Flask, request, jsonify, render_template
-from flask_bootstrap import Bootstrap
 
 from services.weathergetter import WeatherGetter
 
 app = Flask(__name__)
-bootstrap = Bootstrap(app)
 
 
 @app.route('/')
@@ -25,12 +23,13 @@ def get_weather():
 
     Expected response status codes:
     200: everything is ok
+    400: city query parameter is required
     404: city is not found
     500: unexpected error occurred
 
     Expected response type:
     200: weather.html page
-    404 and 500:
+    400, 404 and 500:
     {
         'error' : 'error message'
     }

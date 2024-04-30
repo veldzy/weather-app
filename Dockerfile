@@ -13,7 +13,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the current directory contents into the container at /app
 COPY . .
 
-# Expose port 5000 to the outside world
+# Expose port 4000 to the outside world
 EXPOSE 4000
 
 # Command to run the Flask application
